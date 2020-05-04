@@ -2,22 +2,21 @@ import React from 'react';
 
 import './TodoListItem.css';
 
-const TodoListItem = ({ todo, onRemovePressed, isCompletedPressed }) => {
+const TodoListItem = ({ todo, onRemovePressed, onCompletedPressed }) => {
   const isCompletedClass = todo.isCompleted ? 'completed-button' : null;
-  console.log('isCompletedClass', todo.isCompleted);
 
   return (
     <div className='todo-item-container'>
       <h3>{todo.text}</h3>
       <div className='buttons-container'>
         <button
-          onClick={() => isCompletedPressed(todo.text)}
+          onClick={() => onCompletedPressed(todo.id)}
           className={isCompletedClass}
         >
           Mark As Completed
         </button>
         <button
-          onClick={() => onRemovePressed(todo.text)}
+          onClick={() => onRemovePressed(todo.id)}
           className='remove-button'
         >
           Remove
