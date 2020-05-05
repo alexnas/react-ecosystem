@@ -10,11 +10,14 @@ const TodoItemContainer = styled.div`
   box-shadow: 0 4px 8px grey;
 `;
 
+export const getBorderStyleForDate = (startingDate, currentDate) =>
+  startingDate > new Date(currentDate - 86400000 * 5)
+    ? 'none'
+    : '2px solid red';
+
 const TodoItemContainerWithWarning = styled(TodoItemContainer)`
   border-bottom: ${(props) =>
-    new Date(props.createdAt) > new Date(Date.now() - 8640000 * 5)
-      ? 'none'
-      : '2px solid red'};
+    getBorderStyleForDate(new Date(props.createdAt), Date.now())};
 `;
 
 const ButtonsContainter = styled.div`
@@ -33,8 +36,12 @@ const Button = styled.button`
   display: inline-block;
 `;
 
+export const getButtonStyleForIsCompleted = (isCompleted) =>
+  !isCompleted ? '#22ee22' : 'none';
+
 const CompletedButton = styled(Button)`
-  background-color: ${(props) => (!props.isCompleted ? '#22ee22' : 'none')};
+  background-color: ${(props) =>
+    getButtonStyleForIsCompleted(props.isCompleted)};
 `;
 
 const RemoveButton = styled(Button)`
