@@ -19,9 +19,9 @@ This React is a simple todos application. Connected with a backend by API on por
 - Be sure that Git and Node.js are installed globally.
 - Clone this repo.
 - Run `npm install`, all required components will be installed automatically.
-- Run `npm start` to start the project.
-- Run `npm build` to create a build directory with a production build of the app.
-- Run `npm test` to test the app.
+- Run `npm run start` to start the project.
+- Run `npm run build` to create a build directory with a production build of the app.
+- Run `npm run test` to test the app.
 
 ## License
 
